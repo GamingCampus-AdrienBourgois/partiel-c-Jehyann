@@ -29,7 +29,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
             return std::round((_value * 9.0 / 5.0 + 32.0) * 100.0) / 100.0;
         }
         else if (_to == TemperatureUnits::KELVIN) {
-            return std::round((_value + 273.0) * 100.0) / 100.0;
+            return std::round((_value + 273.15) * 100.0) / 100.0;
         }
     }
 

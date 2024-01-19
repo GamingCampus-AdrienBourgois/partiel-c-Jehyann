@@ -1,6 +1,6 @@
 #include "Solution2.h"
 
-#include <ostream>
+#include <iostream>
 #include <fstream>
 #include <stdexcept>
 
@@ -17,17 +17,19 @@ float Solution2::GetBalance(const std::string& accountName)
     }
 
     float balance = 0.0f;
-    char operation;
+    std::string operation;
     float amount;
 
     while (file >> operation >> amount)
     {
-        if (operation == 'D')
+        if (operation == "DEPOSIT")
         {
+            // Dépôt
             balance += amount;
         }
-        else if (operation == 'W')
+        else if (operation == "WITHDRAW")
         {
+            // Retrait
             balance -= amount;
         }
         else
@@ -37,6 +39,27 @@ float Solution2::GetBalance(const std::string& accountName)
     }
 
     return balance;
+}
+
+float Solution2::GetTotalBalance(const std::vector<std::string>& accountNames)
+{
+    float totalBalance = 0.0f;
+
+    for (const auto& accountName : accountNames)
+    {
+        try
+        {
+            float balance = GetBalance(accountName);
+            std::cout << "Balance for " << accountName << ": " << balance << std::endl;
+            totalBalance += balance;
+        }
+        catch (const std::exception& e)
+        {
+            std::cerr << "Error reading " << accountName << ": " << e.what() << std::endl;
+        }
+    }
+
+    return totalBalance;
 }
 
 #endif

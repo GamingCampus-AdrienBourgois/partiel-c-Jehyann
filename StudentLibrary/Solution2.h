@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 // Don't fortget to enable the exercise in the SudentConfiguration.h file !
 #include "StudentConfiguration.h"
@@ -9,7 +10,8 @@
 class Solution2 // Bank Account
 {
 public:
-	static float GetBalance(const std::string& accountName);
+    static float GetBalance(const std::string& accountName);
+    static float GetTotalBalance(const std::vector<std::string>& accountNames);
 };
 
 #endif
