@@ -7,31 +7,43 @@
 
 float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, TemperatureUnits _to)
 {
-    //case 3
+    // Test 3
     if (_from == _to)
     {
         return _value;
     }
 
-    switch (_from)
-    {
-
-    // case 2
-    case TemperatureUnits::CELSIUS:
-        // Convert from Celsius
-        switch (_to)
-        {
-        case TemperatureUnits::FAHRENHEIT:
-            return (_value * 9.0f / 5.0f) + 32.0f;
-        case TemperatureUnits::KELVIN:
-            return _value + 273.0f;
-        default:
-            return -1.0f; // Unsupported conversion
+    // Test 0 & 1
+    if (_from == TemperatureUnits::KELVIN) {
+        if (_to == TemperatureUnits::CELSIUS) {
+            return _value - 273.0f;
         }
-
+        else if (_to == TemperatureUnits::FAHRENHEIT) {
+            return (_value - 273.0f) * 9.0f / 5.0f + 32.0f;
+        }
     }
 
-        return -1.0f;
+    // Test 2
+    else if (_from == TemperatureUnits::CELSIUS) {
+        if (_to == TemperatureUnits::FAHRENHEIT) {
+            return (_value * 9.0f / 5.0f) + 32.0f;
+        }
+        else if (_to == TemperatureUnits::KELVIN) {
+            return _value + 273.0f;
+        }
+    }
+
+    // Test 4
+    else if (_from == TemperatureUnits::FAHRENHEIT) {
+        if (_to == TemperatureUnits::CELSIUS) {
+            return (_value - 32.0f) * 5.0f / 9.0f;
+        }
+        else if (_to == TemperatureUnits::KELVIN) {
+            return (_value - 32.0f) * 5.0f / 9.0f + 273.0f;
+        }
+    }
+
+    return -1.0f;
 }
 
 #endif
