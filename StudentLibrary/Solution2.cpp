@@ -10,8 +10,7 @@
 
 float Solution2::GetBalance(const std::string& accountName)
 {
-    // dsl pas le temps de faire un truc pr bien lire les fichiers ):
-    std::ifstream file(accountName);
+    std::ifstream file("BankAccount/" + accountName);
     if (!file.is_open())
     {
         throw std::runtime_error("Error: File not found");
@@ -21,6 +20,7 @@ float Solution2::GetBalance(const std::string& accountName)
     std::string operation;
     float amount;
 
+    // ça lit que la première ligne jcrois
     while (file >> operation >> amount)
     {
         if (operation == "DEPOSIT")
