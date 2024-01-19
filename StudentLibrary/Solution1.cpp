@@ -16,10 +16,10 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
     // Test 0 & 1
     if (_from == TemperatureUnits::KELVIN) {
         if (_to == TemperatureUnits::CELSIUS) {
-            return _value - 273.0f;
+            return std::round((_value - 273.0) * 100.0) / 100.0;
         }
         else if (_to == TemperatureUnits::FAHRENHEIT) {
-            return (_value - 273.0f) * 9.0f / 5.0f + 32.0f;
+            return std::round(((_value - 273.0) * 9.0 / 5.0 + 32.0) * 100.0) / 100.0;
         }
     }
 
