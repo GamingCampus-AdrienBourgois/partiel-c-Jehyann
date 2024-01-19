@@ -14,7 +14,7 @@ enum class TemperatureUnits
 class Solution1 // Temperature converter
 {
 public:
-	static float ConvertTemperature(float _value, TemperatureUnits _from, TemperatureUnits _to);
+	static float ConvertTemperature(float _value, TemperatureUnits _from, TemperatureUnits _to, float _result);
 };
 
 #endif
