@@ -10,6 +10,7 @@
 
 float Solution2::GetBalance(const std::string& accountName)
 {
+    // dsl pas le temps de faire un truc pr bien lire les fichiers ):
     std::ifstream file(accountName);
     if (!file.is_open())
     {
@@ -34,32 +35,12 @@ float Solution2::GetBalance(const std::string& accountName)
         }
         else
         {
+            // Test 3
             throw std::runtime_error("Error: Invalid file format");
         }
     }
 
     return balance;
-}
-
-float Solution2::GetTotalBalance(const std::vector<std::string>& accountNames)
-{
-    float totalBalance = 0.0f;
-
-    for (const auto& accountName : accountNames)
-    {
-        try
-        {
-            float balance = GetBalance(accountName);
-            std::cout << "Balance for " << accountName << ": " << balance << std::endl;
-            totalBalance += balance;
-        }
-        catch (const std::exception& e)
-        {
-            std::cerr << "Error reading " << accountName << ": " << e.what() << std::endl;
-        }
-    }
-
-    return totalBalance;
 }
 
 #endif

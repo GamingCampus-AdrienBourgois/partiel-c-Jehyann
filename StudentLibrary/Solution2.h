@@ -11,7 +11,6 @@ class Solution2 // Bank Account
 {
 public:
     static float GetBalance(const std::string& accountName);
-    static float GetTotalBalance(const std::vector<std::string>& accountNames);
 };
 
 #endif
