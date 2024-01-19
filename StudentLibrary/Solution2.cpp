@@ -22,11 +22,11 @@ float Solution2::GetBalance(const std::string& accountName)
 
     while (file >> operation >> amount)
     {
-        if (operation == '+')
+        if (operation == 'D')
         {
             balance += amount;
         }
-        else if (operation == '-')
+        else if (operation == 'W')
         {
             balance -= amount;
         }
